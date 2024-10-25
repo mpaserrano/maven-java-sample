@@ -34,13 +34,10 @@ jobs:
       run: mkdir staging && cp target/*.jar staging
 
     - name: SonarQube Scan
-      uses: sonarsource/sonarqube-scan-action@v2.2.0 # Ex: v2.1.0, See the latest version at https://github.com/marketplace/actions/official-sonarqube-scan
+      uses: sonarsource/sonarqube-scan-action@v2.2.0 -Dsonar.projectKey=githubactions -Dsonar.projectName='githubactions' # Ex: v2.1.0, See the latest version at https://github.com/marketplace/actions/official-sonarqube-scan
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-      INPUT_ARGS: |
-        -Dsonar.projectKey=githubactions
-        -Dsonar.projectName='githubactions'
     - name: Publish Artifacts    
       uses: actions/upload-artifact@v4
       with:
