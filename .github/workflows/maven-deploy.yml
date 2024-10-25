@@ -38,7 +38,9 @@ jobs:
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-
+      INPUT_ARGS: |
+        -Dsonar.projectKey=githubactions
+        -Dsonar.projectName='githubactions'
     - name: Publish Artifacts    
       uses: actions/upload-artifact@v4
       with:
