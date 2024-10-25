@@ -38,4 +38,4 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: http://16.16.146.49:9000/
-        run: mvn -B -X verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=githubactions -Dsonar.projectName='githubactions'
+        run: mvn -B -X clean verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=githubactions -Dsonar.projectName='githubactions'
